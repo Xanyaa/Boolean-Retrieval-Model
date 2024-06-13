@@ -13,13 +13,13 @@ nltk.download('stopwords')
 
 porter_stemmer = PorterStemmer()
 
-""" in this func the query is undergone the following steps:
-    1. tokenize, 
-    2. converted to lowercase,
-    3. stopwords are removed using stopwords.txt file as well as nltk,
-    4. URLS, punctuations, and filtering
-    5. stemming using porter stemmer
-"""
+#""" in this func the query is undergone the following steps:
+#    1. tokenize, 
+#    2. converted to lowercase,
+#    3. stopwords are removed using stopwords.txt file as well as nltk,
+#    4. URLS, punctuations, and filtering
+#    5. stemming using porter stemmer
+#"""
 def preprocess_text(text, stopwords_file):
     text = text.lower()
     tokens = word_tokenize(text)
@@ -59,10 +59,10 @@ def split_words(word_list):
             new_word_list.append(word)
     return new_word_list
 
-""" making inverted index by receiving a collection of txt files reading them in a loop one by one
-    and sending the txt file to the preprocess function for preprocessing 
-    and finally add the tokens in the inverted index
-"""
+#""" making inverted index by receiving a collection of txt files reading them in a loop one by one
+#    and sending the txt file to the preprocess function for preprocessing 
+#    and finally add the tokens in the inverted index
+#"""
 def inverted_ind(directories, stopwords_file):
     inverted_index = defaultdict(set)
     for directory in directories:
@@ -77,11 +77,11 @@ def inverted_ind(directories, stopwords_file):
                 print(f"Error reading file: {filename}")
     return inverted_index
 
-""" making pos index by receiving a collection of txt files, reading them in a loop one by one
-    and sending the txt file to the preprocess function for preprocessing 
-    and finally add the tokens and their positions in the positional index
-    i have not included stopwords in the index
-"""
+#""" making pos index by receiving a collection of txt files, reading them in a loop one by one
+#    and sending the txt file to the preprocess function for preprocessing 
+#    and finally add the tokens and their positions in the positional index
+#    i have not included stopwords in the index
+#"""
 def positional_ind(directories, stopwords_file):
     positional_index = defaultdict(lambda: defaultdict(list))
     for directory in directories:
@@ -96,11 +96,11 @@ def positional_ind(directories, stopwords_file):
                 print(f"Error reading file: {filename}")
     return positional_index
 
-""" this func is called from the main func with attributes indexes and user query
-    it first break the query into terms(by calling function preprocessing)
-    check for the proximity operator, if present call func for positional processing
-    otherwise retrieved documents satisfying the boolean query
-"""
+#""" this func is called from the main func with attributes indexes and user query
+#    it first break the query into terms(by calling function preprocessing)
+#    check for the proximity operator, if present call func for positional processing
+#    otherwise retrieved documents satisfying the boolean query
+#"""
 def process_boolean_query(query, inverted_index, positional_index, stopwords_file):
     query_terms = preprocess_text(query, stopwords_file)
     result_docs = None
@@ -135,11 +135,11 @@ def process_boolean_query(query, inverted_index, positional_index, stopwords_fil
             result_docs = set()
         return result_docs
 
-""" it first break the query into terms(splitting by /)
-    store proximity value and stemmed the terms by porter stemmer
-    find the positions of term in documents
-    i have considered k(proximity value) as a max value not exact 
-"""
+#""" it first break the query into terms(splitting by /)
+#    store proximity value and stemmed the terms by porter stemmer
+#    find the positions of term in documents
+#    i have considered k(proximity value) as a max value not exact 
+#"""
 def process_positional_query(positional_index, query):
     query_parts = query.split('/')
     query_terms = query_parts[0].split() 
