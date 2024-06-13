@@ -72,3 +72,14 @@ This Streamlit application facilitates querying and visualizing data stored in E
 
 ## Conclusion:
 The Streamlit Elasticsearch Search App leverages Streamlit's capabilities to create a user-friendly interface for interacting with Elasticsearch data. It empowers users to perform advanced searches, visualize results, and gain insights from indexed datasets efficiently. Ideal for developers, researchers, and businesses needing robust search functionalities integrated with Elasticsearch
+
+## License
+This project is licensed under the MIT License.
+
+## Contact
+For any inquiries or issues, please contact saniahasan167@gmail.com.
+
+## Acknowledgements
+- [Streamlit](https://streamlit.io/)
+- [NLTK](https://www.nltk.org/)
+- [WordNinja](https://github.com/keredson/wordninja)
