@@ -58,7 +58,7 @@ This Streamlit application facilitates querying and visualizing data stored in E
 **Running the App:**
   - Open a terminal or command prompt.
   - Navigate to the directory containing the Streamlit app script (Boolean-retrieval.py).
-  - Run the app using the command streamlit run a1.py.
+  - Run the app using the command streamlit run Boolean-retrieval.py.
   - Access the app through the provided local URL (usually http://localhost:8501).
 
 **Querying:**
